@@ -5,25 +5,24 @@
 
     events:
       'click .rename': 'rename'
-      'click .delete': 'delete'
+      'click .remove': 'remove'
 
-    intitialize: ->
+    initialize: ->
       @listenTo @model, 'change', @render
-      @listenTo @model, 'delete', @deleteTicket
+      @listenTo @model, 'remove', @remove
 
     render: =>
       @.$el.html """
         <span>#{@model.get 'name'}</span>
         <span class="rename">rename</span>
-        <span class="delete">delete</span>
+        <span class="remove">remove</span>
       """
       @
 
     rename: =>
       @model.set
         name: 'Yours'
-      @render()
 
-    delete: =>
+    remove: =>
       @model.destroy()
       @.$el.remove()
