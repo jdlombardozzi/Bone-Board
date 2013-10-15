@@ -3,4 +3,7 @@
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: ->
+  initialize: (data) ->
+    console.log 'init'
+    new BB.Routers.Tickets()
+    Backbone.history.start()
