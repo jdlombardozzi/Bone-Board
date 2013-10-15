@@ -15,5 +15,4 @@
 //= require json3
 //= require lodash.underscore
 //= require backbone
-//= require backbone.marionette
-//= require_tree .
+//= require backbone/app
