@@ -3,17 +3,20 @@
   class TicketsView extends Backbone.View
     el: $ 'body'
 
+    events: 'click button': 'addTicket'
+
     initialize: ->
       @collection = new BB.Collections.Tickets
-      @collection.bind 'add', @appendTicket
-
       @counter = 0
+
+      @listenTo @collection, 'add', @appendTicket
+
       @render()
 
     render: =>
-      $(@el).append '<button>Add Ticket item</button>'
-      $(@el).append '<ul></ul>'
-      console.log 'rendered ticket view'
+      @.$el.append '<button>Add Ticket item</button>'
+      @.$el.append '<ul></ul>'
+      @
 
     addTicket: =>
       @counter++
@@ -23,12 +26,13 @@
       ticket.set name: "#{ticket.get 'name'} #{ticket.get 'number'}"
 
       @collection.add ticket
-      console.log 'added ticket to collection'
 
     appendTicket: (ticket) =>
       ticketView = new BB.Views.TicketView model: ticket
       $('ul').append ticketView.render().el
 
-    events: 'click button': 'addTicket'
+
+Backbone.sync = (method, model, success, error) ->
+  success()
 
 ticketsView = new BB.Views.TicketsView
