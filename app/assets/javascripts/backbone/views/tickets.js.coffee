@@ -1,9 +1,9 @@
 @BB.Views.TicketsView = do (Backbone) ->
-
   class TicketsView extends Backbone.View
     el: $ 'body'
 
-    events: 'click button': 'addTicket'
+    events:
+      'click button': 'addTicket'
 
     initialize: ->
       @collection = new BB.Collections.Tickets

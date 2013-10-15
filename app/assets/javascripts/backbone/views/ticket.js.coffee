@@ -1,5 +1,4 @@
 @BB.Views.TicketView = do (Backbone) ->
-
   class TicketView extends Backbone.View
     tagName: 'li'
 
@@ -13,10 +12,10 @@
 
     render: =>
       @.$el.html """
-        <span>#{@model.get 'name'}</span>
-        <span class="rename">rename</span>
-        <span class="remove">remove</span>
-      """
+                 <span>#{@model.get 'name'}</span>
+                 <span class="rename">rename</span>
+                 <span class="remove">remove</span>
+                 """
       @
 
     rename: =>

@@ -18,3 +18,4 @@ end
 
 gem 'jquery-rails'
 gem 'rvm-capistrano'
+gem 'httparty'
