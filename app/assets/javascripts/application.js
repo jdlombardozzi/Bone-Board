@@ -15,4 +15,10 @@
 //= require json3
 //= require lodash.underscore
 //= require backbone
-//= require backbone/app
+//= require backbone/bone_board
+//= require_tree ./backbone/models
+//= require_tree ./backbone/collections
+//= require_tree ./backbone/views
+//= require_tree ./backbone/routers
+//= require_tree ./templates
+//= require_tree .
