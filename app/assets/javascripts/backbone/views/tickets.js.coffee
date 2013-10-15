@@ -6,6 +6,7 @@
     initialize: ->
       @collection = new BB.Collections.Tickets
       @collection.bind 'add', @appendTicket
+
       @counter = 0
       @render()
 
@@ -25,8 +26,8 @@
       console.log 'added ticket to collection'
 
     appendTicket: (ticket) =>
-      $('ul').append "<li>#{ticket.get 'name'}</li>"
-      console.log 'appended ticket to view'
+      ticketView = new BB.Views.TicketView model: ticket
+      $('ul').append ticketView.render().el
 
     events: 'click button': 'addTicket'
 
