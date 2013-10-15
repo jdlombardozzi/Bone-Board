@@ -1,4 +1,5 @@
-@BoneBoard =
+@BoneBoard = do (Backbone) ->
+
   Models: {}
   Collections: {}
   Views: {}

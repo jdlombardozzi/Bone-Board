@@ -1,31 +1,33 @@
-class TicketView extends Backbone.View
-  el: $ 'body'
+@BoneBoard.Views.TicketView = do (Backbone) ->
 
-  initialize: ->
-    _.bindAll @
+  class TicketView extends Backbone.View
+    el: $ 'body'
 
-    @colllection = new Tickets
-    @collection.bind 'add', @appendTicket
-    @counter = 0
-    @render()
+    initialize: ->
+      @collection = new BoneBoard.Collections.Tickets
+      @collection.bind 'add', @appendTicket
+      @counter = 0
+      @render()
 
+    render: =>
+      $(@el).append '<button>Add Ticket item</button>'
+      $(@el).append '<ul></ul>'
+      console.log 'rendered ticket view'
 
-  render: ->
-    $(@el).append '<button>Add Ticket item</button>'
-    $(@el).append '<ul></ul>'
+    addTicket: =>
+      @counter++
 
-  addTicket: ->
-    @counter++
+      ticket = new BoneBoard.Models.Ticket
+      ticket.set number: @counter
+      ticket.set name: "#{ticket.get 'name'} #{ticket.get 'number'}"
 
-    ticket = new Ticket
-    ticket.set number: @counter
-    ticket.set name: "#{ticket.get 'name'} #{ticket.get 'number'}"
+      @collection.add ticket
+      console.log 'added ticket to collection'
 
-    @colletion.add ticket
+    appendTicket: (ticket) =>
+      $('ul').append "<li>#{ticket.get 'name'}</li>"
+      console.log 'appended ticket to view'
 
-  appendTicket: (ticket) ->
-    $('ul').append "<li>#{ticket.get 'name'}</li>"
+    events: 'click button': 'addTicket'
 
-  events: 'click button': 'addItem'
-
-ticketView = new TicketView
+ticketView = new BoneBoard.Views.TicketView
