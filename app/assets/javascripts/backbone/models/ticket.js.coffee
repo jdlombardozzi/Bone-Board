@@ -1,4 +1,4 @@
-@BoneBoard.Models.Ticket = do (Backbone) ->
+@BB.Models.Ticket = do (Backbone) ->
 
   class Ticket extends Backbone.Model
     defaults:

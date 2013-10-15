@@ -1,4 +1,4 @@
-@BoneBoard = do (Backbone) ->
+@BB = do (Backbone) ->
 
   Models: {}
   Collections: {}

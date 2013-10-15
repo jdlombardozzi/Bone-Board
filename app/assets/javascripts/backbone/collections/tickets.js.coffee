@@ -1,4 +1,4 @@
-@BoneBoard.Collections.Tickets = do (Backbone) ->
+@BB.Collections.Tickets = do (Backbone) ->
 
   class Tickets extends Backbone.Collection
-    model: BoneBoard.Models.Ticket
+    model: BB.Models.Ticket
