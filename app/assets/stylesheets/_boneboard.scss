@@ -12,8 +12,20 @@ button {
   margin: 0 auto;
 }
 
-#tickets-view {
-  h2 {
-    display: inline-block;
-  }
+.no-bullet {
+  list-style: none inside none;
+}
+
+.ticket {
+  background: $white;
+  width: 23%;
+  min-height: 11em;
+  float: left;
+  margin: 1%;
+  position: relative;
+}
+
+.ticket__actions {
+  position: absolute;
+  bottom: 0;
 }

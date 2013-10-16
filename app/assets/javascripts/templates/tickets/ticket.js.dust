@@ -1,3 +1,7 @@
-<h2>{subject}</h2>
-<button class="rename">Rename</button>
-<button class="remove">Remove</button>
+<div class="ticket">
+	<h2>{subject}</h2>
+	<div class="ticket__actions">
+		<button class="rename">Rename</button>
+		<button class="remove">Remove</button>
+	<div>
+</div>

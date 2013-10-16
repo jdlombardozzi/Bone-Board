@@ -1,7 +1,7 @@
 @BB.Views.TicketsView = do (Backbone) ->
   class TicketsView extends Backbone.View
     el: $ '#wrapper'
-    template: 'tickets/index'
+    template: 'tickets/tickets'
 
     events:
       'click .add': 'addTicket'
@@ -23,4 +23,4 @@
       $('ul').append ticketView.render().el
 
 Backbone.sync = (method, model, success, error) ->
-  success()
+  # success()
