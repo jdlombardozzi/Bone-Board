@@ -1,25 +1,21 @@
 @BB.Views.TicketsView = do (Backbone) ->
   class TicketsView extends Backbone.View
     el: $ 'body'
+    template: 'tickets/index'
 
     events:
-      'click button': 'addTicket'
+      'click .add': 'addTicket'
 
     initialize: ->
       console.log 'Initialize TicketsView.'
-#      @collection = new BB.Collections.Tickets
-#      @counter = 0
-
-#      @listenTo @collection, 'add', @appendTicket
 
       @render()
       @addAll()
 
     render: =>
-      console.log 'Render TicketsView.'
-      @.$el.append '<h1>Redmine Tickets</h1>'
-      @.$el.append '<button>Add Ticket item</button>'
-      @.$el.append '<ul></ul>'
+      console.log 'TicketsView render.'
+      dust.render @template, {}, (err, out) =>
+        @.$el.append out
       @
 
     addAll: ->
@@ -28,18 +24,8 @@
 
     addTicket: (model) =>
       console.log 'addTicket called.'
-      console.log model
       ticketView = new BB.Views.TicketView model: model
       $('ul').append ticketView.render().el
-#      ticket.set number: @counter
-#      ticket.set name: "#{ticket.get 'name'} #{ticket.get 'number'}"
-
-#      @collection.add ticket
-#
-#    appendTicket: (ticket) =>
-#      ticketView = new BB.Views.TicketView model: ticket
-#      $('ul').append ticketView.render().el
-
 
 Backbone.sync = (method, model, success, error) ->
   success()

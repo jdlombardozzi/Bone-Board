@@ -1,6 +1,6 @@
 @BB.Views.TicketView = do (Backbone) ->
   class TicketView extends Backbone.View
-    tagName: 'li'
+    template: 'tickets/ticket'
 
     events:
       'click .rename': 'rename'
@@ -11,16 +11,13 @@
       @listenTo @model, 'remove', @remove
 
     render: =>
-      @.$el.html """
-                 <span>#{@model.get 'subject'}</span>
-                 """
-#      <span class="rename">rename</span>
-#      <span class="remove">remove</span>
+      dust.render @template, @model.toJSON(), (err, out) =>
+              @.$el.html out
       @
 
     rename: =>
       @model.set
-        name: 'Yours'
+        subject: 'New ticket title'
 
     remove: =>
       @model.destroy()
