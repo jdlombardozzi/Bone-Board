@@ -1,5 +1,5 @@
 @BB.Models.Ticket = do (Backbone) ->
   class Ticket extends Backbone.Model
     defaults:
-      name: 'Mine'
-      number: undefined
+      author: 'Me'
+      created_on: new Date()

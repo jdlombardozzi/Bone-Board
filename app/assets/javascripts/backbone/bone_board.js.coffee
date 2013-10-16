@@ -4,6 +4,7 @@
   Views: {}
   Routers: {}
   initialize: (data) ->
-    console.log 'init'
-    new BB.Routers.Tickets()
+    console.log 'BB App started.'
+    console.log data
+    new BB.Routers.Tickets(data)
     Backbone.history.start()

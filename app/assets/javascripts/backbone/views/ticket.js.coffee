@@ -12,10 +12,10 @@
 
     render: =>
       @.$el.html """
-                 <span>#{@model.get 'name'}</span>
-                 <span class="rename">rename</span>
-                 <span class="remove">remove</span>
+                 <span>#{@model.get 'subject'}</span>
                  """
+#      <span class="rename">rename</span>
+#      <span class="remove">remove</span>
       @
 
     rename: =>
