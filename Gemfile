@@ -17,3 +17,4 @@ end
 
 # Frontend stuff
 gem 'jquery-rails'
+gem 'topcoat-rails'

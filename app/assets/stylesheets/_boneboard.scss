@@ -1,0 +1,19 @@
+button {
+  @extend .topcoat-button;
+
+  &.remove {
+    @extend .topcoat-button--quiet;
+    margin-left: 1em;
+  }
+}
+
+#wrapper {
+  max-width: 68em;
+  margin: 0 auto;
+}
+
+#tickets-view {
+  h2 {
+    display: inline-block;
+  }
+}

@@ -1,1 +1,3 @@
-<li>{subject}<button class='rename'>Rename</button><button class='remove'>Remove</button></li>
+<h2>{subject}</h2>
+<button class="rename">Rename</button>
+<button class="remove">Remove</button>
