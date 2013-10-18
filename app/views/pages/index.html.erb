@@ -1,5 +1,10 @@
+<div id="boneboard-app">
+  <h1>Redmine Tickets</h1>
+  <ul id="tickets" class="no-bullet"></ul>
+</div>
+
 <%= content_for :javascript do -%>
   <%= javascript_tag do %>
-    BB.initialize({ tickets: <%== @tickets.to_json.html_safe %> });
+    BB.initialize(<%= @tickets.to_json.html_safe %>);
   <% end %>
 <% end -%>

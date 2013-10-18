@@ -1,0 +1,3 @@
+<section id="stats">
+	<p class="total">Total tickets: {total}</p>
+</section>

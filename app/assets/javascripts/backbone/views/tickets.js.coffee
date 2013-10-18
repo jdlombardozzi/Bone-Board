@@ -1,26 +1,25 @@
 @BB.Views.TicketsView = do (Backbone) ->
   class TicketsView extends Backbone.View
-    el: $ '#wrapper'
-    template: 'tickets/tickets'
+    # template: 'tickets/tickets'
+    el: '#tickets'
 
     events:
       'click .add': 'addTicket'
 
-    initialize: ->
+    initialize: (initialTickets) ->
+      @collection = new BB.Collections.Tickets initialTickets
       @render()
-      @addAll()
 
     render: =>
-      dust.render @template, {}, (err, out) =>
-        @.$el.append out
+      @addAll()
       @
 
-    addAll: ->
-      @collection.forEach(@addTicket, @)
+    addAll: =>
+      @collection.each @addTicket
 
-    addTicket: (model) =>
-      ticketView = new BB.Views.TicketView model: model
-      $('ul').append ticketView.render().el
+    addTicket: (ticket) =>
+      ticketView = new BB.Views.TicketView model: ticket
+      @.$el.append ticketView.render().el
 
 Backbone.sync = (method, model, success, error) ->
-  # success()
+  success()

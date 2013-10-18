@@ -1,6 +1,7 @@
 @BB.Views.TicketView = do (Backbone) ->
   class TicketView extends Backbone.View
     tagName: 'li'
+    className: 'ticket'
     template: 'tickets/ticket'
 
     events:
